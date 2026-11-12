@@ -243,7 +243,9 @@ button { font: inherit; color: inherit; }
 .hero-kick span { opacity: .45; margin-inline: .5rem; }
 
 .hero-title { margin: 0; font-size: clamp(3.1rem, 8.4vw, 7.4rem); }
-.hero-title .l { display: block; overflow: hidden; }
+/* line-height .88 deja el cajón más bajo que el alto de mayúscula de Anton:
+   sin este colchón, overflow:hidden corta la punta de cada letra. */
+.hero-title .l { display: block; overflow: hidden; padding-top: .16em; margin-top: -.16em; }
 .hero-title .l > span { display: block; will-change: transform; }
 .hero-title em { font-style: normal; color: var(--wood-bright); }
 
@@ -268,13 +270,17 @@ button { font: inherit; color: inherit; }
   height: 109%; width: auto; max-width: none;
   filter: drop-shadow(0 20px 30px rgba(8, 18, 12, .5));
 }
-.hero-links { display: flex; flex-wrap: wrap; gap: 1.4rem; margin: 1.7rem 0 0; }
-.hero-links a {
-  text-decoration: none; opacity: .72; padding-bottom: .15rem;
-  border-bottom: 1px solid var(--rule-dark);
-  transition: opacity .25s, color .25s, border-color .25s;
+/* redes del hero: ícono circular, el mismo motivo del disco de papel de atrás */
+.hero-social { display: flex; flex-wrap: wrap; gap: .9rem; margin: 1.7rem 0 0; }
+.social-ic {
+  width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--rule-dark); color: var(--on-dark);
+  transition: background .25s var(--ease), border-color .25s, color .25s, translate .25s var(--ease);
 }
-.hero-links a:hover { opacity: 1; color: var(--cyan-bright); border-color: var(--cyan-bright); }
+.social-ic svg { width: 1.2rem; height: 1.2rem; fill: currentColor; }
+.social-ic:hover { background: var(--wood-bright); border-color: var(--wood-bright); color: var(--ink); translate: 0 -3px; }
+.block--paper .social-ic, .block--cream .social-ic { border-color: var(--rule-light); color: var(--on-light); }
 
 .tape {
   position: absolute; width: 62px; height: 20px; left: 50%; top: -10px; translate: -50% 0;
@@ -288,6 +294,7 @@ button { font: inherit; color: inherit; }
   position: relative; z-index: 2;
   background: var(--ink); color: var(--cream);
   padding-block: .95rem;
+  padding-inline: var(--pad);
   overflow: hidden;
 }
 .marquee-row b { font-family: "Archivo Black", sans-serif; font-variation-settings: normal; letter-spacing: .02em; color: var(--wood-bright); }
@@ -321,7 +328,10 @@ button { font: inherit; color: inherit; }
 .fact dt { opacity: .6; }
 .fact dd { margin: 0; }
 
-.scrolly { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); margin-top: clamp(2.5rem, 6vw, 4rem); }
+/* overflow: clip porque el teléfono sticky se centra con translate(-50%) y, apenas
+   entra la sección en pantalla, esa mitad de alto puede pintarse por encima de su
+   propio contenedor y tapar la cita de arriba; acá se recorta contra .scrolly. */
+.scrolly { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); margin-top: clamp(2.5rem, 6vw, 4rem); overflow: clip; }
 .scrolly-col { position: sticky; top: 50%; translate: 0 -50%; align-self: start; height: fit-content; }
 
 /* --- mockup sobrio: marco fino, sombra larga y nada más.
