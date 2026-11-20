@@ -100,10 +100,13 @@
     } else fin();
   }
 
-  $$('.ref').forEach((b) => b.addEventListener('click', () => {
-    if (b.dataset.arrastrado === '1') return;
+  // delegado: también sirve para las copias que arma la cinta infinita
+  let arrastroCinta = false;
+  $('#refs').addEventListener('click', (e) => {
+    const b = e.target.closest('.ref');
+    if (!b || arrastroCinta) return;
     abrirVisor(b.dataset.ig, b);
-  }));
+  });
   $$('[data-close]', visor).forEach((el) => el.addEventListener('click', cerrarVisor));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !visor.hidden) cerrarVisor(); });
 
@@ -200,17 +203,18 @@
 
   function entradaHero() {
     if (quieto) return;
+    // todo entra en ~1,1 s: rápido, pero en capas
     const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
     const sp = partir($$('.ln', titulo), 'chars');
-    if (sp) tl.from(sp.chars, { yPercent: 70, opacity: 0, rotation: 8, stagger: 0.022, duration: 1.1 }, 0);
-    tl.from('.s-hero .hero-kick', { y: 20, opacity: 0, duration: 0.8 }, 0.1)
-      .from('#heroLede, #heroCta', { y: 26, opacity: 0, stagger: 0.08, duration: 0.9 }, 0.35)
-      .from('.stage > .stage-disc', { scale: 0, duration: 1.3, ease: 'elastic.out(1, .7)' }, 0.05)
-      .from('#stageCut', { y: 120, opacity: 0, duration: 1.2 }, 0.15)
+    if (sp) tl.from(sp.chars, { yPercent: 60, opacity: 0, rotation: 6, stagger: 0.011, duration: 0.75 }, 0);
+    tl.from('.s-hero .hero-kick', { y: 16, opacity: 0, duration: 0.5 }, 0)
+      .from('#heroLede, #heroCta', { y: 20, opacity: 0, stagger: 0.06, duration: 0.6 }, 0.2)
+      .from('.stage > .stage-disc', { scale: 0, duration: 0.9, ease: 'elastic.out(1, .75)' }, 0)
+      .from('#stageCut', { y: 90, opacity: 0, duration: 0.8 }, 0.05)
       .fromTo(mks,
         { scale: 0.3, opacity: 0, rotation: (i, el) => inclin.get(el) + gsap.utils.random(-30, 30) },
-        { scale: 1, opacity: 1, rotation: (i, el) => inclin.get(el), stagger: { each: 0.07, from: 'random' }, duration: 1.1, ease: 'back.out(1.6)' },
-        0.35);
+        { scale: 1, opacity: 1, rotation: (i, el) => inclin.get(el), stagger: { each: 0.04, from: 'random' }, duration: 0.75, ease: 'back.out(1.7)' },
+        0.15);
     return tl;
   }
 
@@ -256,14 +260,16 @@
         ScrollTrigger.refresh();
       },
     });
-    tl.from('.intro-txt > *', { yPercent: 120, opacity: 0, stagger: 0.1, duration: 0.6, ease: 'expo.out' })
-      .to('.intro-txt', { opacity: 0, scale: 0.94, duration: 0.3, ease: 'power2.in' }, '+=0.25')
-      .to('.intro-top', { yPercent: -108, rotation: -4, duration: 0.95, ease: 'expo.inOut' }, '-=0.05')
-      .to('.intro-bot', { yPercent: 108, rotation: 3, duration: 0.95, ease: 'expo.inOut' }, '<')
-      .add(arrancar, '-=0.55');
-    const saltar = () => tl.progress(1);
+    // ~1,1 s en total; el hero arranca mientras la hoja todavía se abre
+    tl.from('.intro-txt > *', { yPercent: 110, opacity: 0, stagger: 0.06, duration: 0.4, ease: 'expo.out' })
+      .to('.intro-txt', { opacity: 0, scale: 0.95, duration: 0.18, ease: 'power2.in' }, '+=0.08')
+      .to('.intro-top', { yPercent: -108, rotation: -4, duration: 0.65, ease: 'expo.inOut' }, '-=0.08')
+      .to('.intro-bot', { yPercent: 108, rotation: 3, duration: 0.65, ease: 'expo.inOut' }, '<')
+      .add(arrancar, '-=0.45');
+    // tocar una tecla, la rueda o la pantalla la saltea
+    const saltar = () => { if (tl.progress() < 1) tl.progress(1); };
     $('#introSkip').addEventListener('click', saltar);
-    window.addEventListener('keydown', saltar, { once: true });
+    ['keydown', 'wheel', 'touchstart'].forEach((ev) => window.addEventListener(ev, saltar, { once: true, passive: true }));
   } else {
     arrancar();
   }
@@ -440,27 +446,74 @@
         .from('#cal [class^="c-"]', { scale: 0, rotation: () => gsap.utils.random(-20, 20), duration: 0.5, ease: 'back.out(2.5)', stagger: 0.08 }, '-=0.4');
     });
 
-    // panel 2: los tokens arman la pieza
+    // panel 2: un cursor «Claude» toma cada token y arma un post y una historia con él.
+    // Todo con valores de partida y de llegada explícitos (clip-path desde «none» no se interpola).
     alEntrar($('.pan[data-pan="2"]'), () => {
-      const toks = $$('[data-tok]');
-      const pulso = (el) => gsap.timeline().to(el, { scale: 1.3, duration: 0.18, ease: 'power2.out' }).to(el, { scale: 1, duration: 0.4, ease: 'back.out(3)' });
-      const anillo = $('.ds-ring path');
-      const largo = prepararTrazo(anillo);
-      return gsap.timeline()
-        .add(pulso(toks[1]))
-        .from('.ds-bg', { clipPath: 'inset(100% 0 0 0)', duration: 0.7, ease: 'expo.inOut' }, '<')
-        .add(pulso(toks[8]), '+=0.05')
-        .from('.ds-tapebit', { y: -60, rotation: -40, opacity: 0, duration: 0.6, ease: 'back.out(2)' }, '<')
-        .add(pulso(toks[6]))
-        .from('.ds-kick', { opacity: 0, x: -20, duration: 0.4 }, '<')
-        .add(pulso(toks[5]))
-        .from('.ds-head', { opacity: 0, y: 30, duration: 0.6, ease: 'expo.out' }, '<')
-        .add(pulso(toks[4]))
-        .add(pulso(toks[2]), '<')
-        .from('.ds-key', { scale: 1.9, opacity: 0, duration: 0.7, ease: 'expo.out', transformOrigin: '0% 50%' }, '<')
-        .add(pulso(toks[9]))
-        .fromTo(anillo, { strokeDashoffset: largo }, { strokeDashoffset: 0, duration: 0.9, ease: 'power2.inOut' }, '<')
-        .from('.ds-sign', { opacity: 0, duration: 0.4 });
+      const body = $('#dzBody');
+      const cur = $('#dzCur');
+      const sel = $('#dzSel');
+      const tok = (n) => $(`.dz-tok[data-dz="${n}"]`, body);
+      const rel = (el) => {
+        const r = el.getBoundingClientRect();
+        const b = body.getBoundingClientRect();
+        return { x: r.left - b.left, y: r.top - b.top, w: r.width, h: r.height };
+      };
+      const LLENO = 'inset(0% 0% 0% 0%)';
+      const destapar = (el, desde, dur = 0.42, ease = 'expo.inOut') =>
+        gsap.fromTo(el, { clipPath: desde }, { clipPath: LLENO, duration: dur, ease, clearProps: 'clipPath' });
+      const aparecer = (el) => gsap.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+      const subrayado = $('.ab-key path', body);
+      const oculto = prepararTrazo(subrayado);
+
+      const tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
+      const ir = (el, fx, fy) => tl.to(cur, {
+        x: () => { const p = rel(el); return p.x + p.w * fx; },
+        y: () => { const p = rel(el); return p.y + p.h * fy; },
+        duration: 0.3,
+      });
+      const tocar = (t) => {
+        tl.add(() => { $$('.dz-tok.is-on', body).forEach((e) => e.classList.remove('is-on')); t.classList.add('is-on'); });
+        tl.to(cur, { scale: 0.8, duration: 0.07, yoyo: true, repeat: 1, ease: 'power1.inOut' });
+      };
+      const marcar = (el) => tl.to(sel, {
+        x: () => rel(el).x - 4, y: () => rel(el).y - 4,
+        width: () => rel(el).w + 8, height: () => rel(el).h + 8,
+        opacity: 1, duration: 0.25, ease: 'power3.out',
+      });
+      const paso = (nombre, destino, revelar) => {
+        ir(tok(nombre), 0.7, 0.55);
+        tocar(tok(nombre));
+        ir(destino, 0.5, 0.45);
+        marcar(destino);
+        revelar();
+      };
+
+      tl.set(cur, { x: () => rel(tok('crema')).x + 110, y: () => rel(tok('crema')).y - 24 })
+        .to(cur, { opacity: 1, duration: 0.2 });
+
+      paso('crema', $('.ab-post .ab-bg'), () => tl.add(destapar('.ab-post .ab-bg', 'inset(0% 0% 100% 0%)'), '<'));
+      paso('bosque', $('.ab-story .ab-bg'), () => tl.add(destapar('.ab-story .ab-bg', 'inset(100% 0% 0% 0%)'), '<'));
+      paso('titular', $('.ab-head'), () => tl.add(destapar('.ab-head', 'inset(0% 100% 0% 0%)', 0.6, 'steps(12)'), '<'));
+      paso('clave', $('.ab-post .ab-key'), () => {
+        tl.add(destapar('.ab-post .ab-key', 'inset(100% 0% 0% 0%)', 0.45, 'expo.out'), '<');
+        tl.add(destapar('.ab-key--s', 'inset(100% 0% 0% 0%)', 0.45, 'expo.out'), '<0.12');
+      });
+      paso('madera', $('.ab-light .ab-kick'), () => {
+        tl.add(aparecer('.ab-light .ab-kick'), '<');
+        tl.fromTo(subrayado, { strokeDashoffset: oculto }, { strokeDashoffset: 0, duration: 0.5, ease: 'power2.inOut' }, '<');
+      });
+      paso('cian', $('.ab-poll'), () => {
+        tl.add(aparecer('.ab-kick--c'), '<');
+        tl.add(destapar('.ab-poll', 'inset(0% 0% 100% 0%)', 0.4), '<');
+        tl.add(gsap.fromTo('.ab-opt i', { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: 'expo.out', stagger: 0.1 }), '-=0.1');
+      });
+
+      tl.to(sel, { opacity: 0, duration: 0.2 })
+        .add(gsap.fromTo('.ab-tape', { y: -36, rotation: -28, opacity: 0 }, { y: 0, rotation: -3, opacity: 1, duration: 0.55, ease: 'back.out(2)' }), '<')
+        .add(gsap.fromTo('.ab-body, .ab-sign, .ab-pag, .ab-bars, .ab-reply', { opacity: 0 }, { opacity: 1, duration: 0.35, stagger: 0.05 }), '<')
+        .to(cur, { x: '+=36', y: '+=28', opacity: 0, duration: 0.45 }, '+=0.15')
+        .add(() => $$('.dz-tok.is-on', body).forEach((e) => e.classList.remove('is-on')), '<');
+      return tl;
     });
 
     /* ---------- ANILLO 3D (sólo escritorio) ---------- */
@@ -503,9 +556,13 @@
     hojas.forEach((hoja, i) => {
       const sig = hojas[i + 1];
       if (sig) {
-        gsap.to(hoja, {
-          scale: 0.9 + i * 0.015, rotation: i % 2 ? 1.4 : -1.4, filter: 'brightness(.95)', ease: 'none',
-          scrollTrigger: { trigger: sig, start: 'top bottom', end: 'top 30%', scrub: true },
+        // La de atrás se achica y se sombrea recién cuando la siguiente ya la está tapando.
+        // Sombra con una capa (--sombra), no con filter: GSAP interpola filter desde
+        // brightness(0) y la hoja se ponía negra.
+        gsap.fromTo(hoja, { scale: 1, rotation: 0, '--sombra': 0 }, {
+          scale: 0.92 + i * 0.012, rotation: i % 2 ? 1.2 : -1.2, '--sombra': 0.14, ease: 'none',
+          // termina cuando la siguiente llega a su lugar fijo (su top de sticky)
+          scrollTrigger: { trigger: sig, start: 'top 55%', end: () => `top ${parseFloat(getComputedStyle(sig).top) + 10}px`, scrub: true, invalidateOnRefresh: true },
         });
       }
       gsap.from(hoja, { y: 80, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: hoja, start: 'top 92%', once: true } });
@@ -649,22 +706,84 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * Referencias: la cinta corre con el scroll y se inclina con la velocidad
+   * Referencias: cinta infinita que avanza sola. Frena al pasar el mouse
+   * (o al enfocar una tarjeta) y se puede arrastrar. El scroll no la mueve.
    * ------------------------------------------------------------------ */
-  mm.add(`(min-width: 861px) and ${NORMAL}`, () => {
-    const track = $('#refsTrack');
-    const sesgo = gsap.quickTo(track, 'skewX', { duration: 0.5, ease: 'power3' });
-    gsap.to(track, {
-      x: () => -(track.scrollWidth - window.innerWidth), ease: 'none',
-      scrollTrigger: {
-        trigger: '#refs', start: 'top 85%', end: 'bottom 10%', scrub: 0.8, invalidateOnRefresh: true,
-        onUpdate: (self) => sesgo(gsap.utils.clamp(-9, 9, self.getVelocity() / -260)),
-        onLeave: () => sesgo(0), onLeaveBack: () => sesgo(0),
-      },
-    });
-  });
   if (!quieto) {
-    gsap.from('.ref', { y: 90, rotation: () => gsap.utils.random(-6, 6), opacity: 0, stagger: 0.07, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '#refs', start: 'top 85%', once: true } });
+    const zona = $('#refs');
+    const track = $('#refsTrack');
+    const originales = $$('.ref', track);
+
+    gsap.from(originales, { y: 90, rotation: () => gsap.utils.random(-6, 6), opacity: 0, stagger: 0.07, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: zona, start: 'top 85%', once: true } });
+
+    // una copia del juego completo, para que el loop no tenga costura
+    originales.forEach((b) => {
+      const c = b.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      c.tabIndex = -1;
+      track.appendChild(c);
+    });
+    zona.classList.add('is-auto');
+    d.classList.add('refs-auto');
+
+    const VEL = 42; // px por segundo
+    let mitad = 0;
+    let pos = 0;           // corrimiento actual, 0..mitad
+    let ritmo = 1;         // 1 = avanza, 0 = frenada
+    const ritmoObj = { v: 1 };
+    let arrastrando = false, ultimoX = 0, movido = 0, enVista = false;
+
+    const medir = () => {
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      mitad = originales.reduce((acc, b) => acc + b.offsetWidth + gap, 0);
+    };
+    medir();
+    window.addEventListener('resize', medir);
+
+    const frenar = (a) => gsap.to(ritmoObj, { v: a, duration: a ? 0.8 : 0.45, ease: 'power2.out', overwrite: true, onUpdate: () => { ritmo = ritmoObj.v; } });
+
+    gsap.ticker.add((t, dt) => {
+      if (!enVista || !mitad) return;
+      if (!arrastrando) pos += (VEL * ritmo * dt) / 1000;
+      pos = ((pos % mitad) + mitad) % mitad;
+      track.style.transform = `translate3d(${-pos}px, 0, 0)`;
+    });
+
+    ScrollTrigger.create({ trigger: zona, start: 'top bottom', end: 'bottom top', onToggle: (self) => { enVista = self.isActive; } });
+
+    if (punteroFino) {
+      zona.addEventListener('pointerenter', () => frenar(0));
+      zona.addEventListener('pointerleave', () => { if (!arrastrando) frenar(1); });
+    }
+    zona.addEventListener('focusin', () => frenar(0));
+    zona.addEventListener('focusout', () => frenar(1));
+
+    zona.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return;
+      arrastrando = true; movido = 0; ultimoX = e.clientX;
+      frenar(0);
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!arrastrando) return;
+      const dx = e.clientX - ultimoX;
+      ultimoX = e.clientX;
+      movido += Math.abs(dx);
+      if (movido > 6) zona.classList.add('is-drag');
+      pos -= dx;
+    });
+    window.addEventListener('pointerup', () => {
+      if (!arrastrando) return;
+      arrastrando = false;
+      marcarArrastre();
+      zona.classList.remove('is-drag');
+      // en táctil no hay hover: retoma sola después de un momento
+      if (!punteroFino || !zona.matches(':hover')) gsap.delayedCall(punteroFino ? 0 : 1.2, () => frenar(1));
+    });
+    // si hubo arrastre, el click que viene después no abre el visor
+    function marcarArrastre() {
+      arrastroCinta = movido > 6;
+      setTimeout(() => { arrastroCinta = false; }, 0);
+    }
   }
 
   /* ------------------------------------------------------------------ *
