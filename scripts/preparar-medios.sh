@@ -15,6 +15,7 @@ PIEZAS=(
   "papa-dia-1-2|$P/2026-11-08-voluntario-dia-1-2/out/2026-11-08-voluntario-dia-1-2.mp4|$P/2026-11-08-voluntario-dia-1-2/out/portada.png"
   "papa-dia-3|$P/2026-11-09-voluntario-dia-3/out/2026-11-09-voluntario-dia-3.mp4|$P/2026-11-09-voluntario-dia-3/out/portada.png"
   "papa-testimonios|$P/2026-11-10-voluntario-dia-4-testimonios/out/2026-11-10-voluntario-dia-4-testimonios.mp4|$P/2026-11-10-voluntario-dia-4-testimonios/out/portada.png"
+  "todos-todos-todos|$P/2026-11-11-todos-todos-todos/out/2026-11-11-todos-todos-todos.mp4|$P/2026-11-11-todos-todos-todos/out/portada-leon.png"
   "consecuencias|$P/2026-11-02-consecuencias/out/2026-11-02-consecuencias.mp4|$P/2026-11-02-consecuencias/out/portada.png"
   "disfraz-confiesa|$P/2026-10-30-disfraz-confiesa/out/2026-10-30-disfraz-confiesa-max.mp4|$P/2026-10-30-disfraz-confiesa/out/portada.png"
   "teologia-kayak|$P/2026-10-28-teologia-del-cuerpo-kayak/out/teologia-del-cuerpo-v8-final.mp4|$P/2026-10-28-teologia-del-cuerpo-kayak/out/portada-v8.png"
@@ -42,6 +43,17 @@ for fila in "${PIEZAS[@]}"; do
 
   echo "ok $slug"
 done
+
+# Servicios: fragmento del horno (44-56 s) con todos los cuadros clave,
+# para que el editor de la página lo recorra con el scroll sin saltos.
+TODOS="$P/2026-11-11-todos-todos-todos/out/2026-11-11-todos-todos-todos.mp4"
+if [ -f "$TODOS" ]; then
+  "$FF" -y -loglevel error -ss 44 -t 12 -i "$TODOS" \
+    -an -vf "scale=360:640:flags=lanczos,fps=20" \
+    -c:v libx264 -preset slow -crf 33 -g 1 -pix_fmt yuv420p -movflags +faststart \
+    "$OUT/previews/scrub-todos.mp4"
+  echo "ok scrub-todos"
+fi
 
 # Foto del hero: dos tama~nos, sin recortar.
 FOTO="/c/Users/nicod/.claude/uploads/99d0f868-535e-4ad2-bb1d-d8873cf5f8d1/d0da4540-image.jpg"

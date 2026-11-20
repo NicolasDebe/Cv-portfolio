@@ -765,3 +765,8 @@ blockquote.ig { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .js [data-rev] { opacity: 1 !important; transform: none !important; }
 }
+
+/* ============================ LINK A SERVICIOS ============================= */
+.nav-menu a.nav-svc { opacity: 1; color: var(--wood-bright); }
+.nav-menu a.nav-svc:hover { color: var(--cream); }
+.m-hero-svc { display: block; margin-top: 1rem; color: var(--wood-bright); text-decoration: none; }

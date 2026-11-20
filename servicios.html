@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Redes sociales · Nicolás Debé</title>
+  <meta name="description" content="Producción de contenido, Meta Ads, community management y comunidades digitales en Mendoza. IA planificada, sistemas de diseño y motion graphics para un mensaje unificado en todas las plataformas." />
+  <meta name="author" content="Nicolás Debé" />
+  <meta name="theme-color" content="#0C1711" />
+  <link rel="canonical" href="https://nicolasdebe.github.io/Cv-portfolio/servicios.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 C52 38 62 48 100 50 C62 52 52 62 50 100 C48 62 38 52 0 50 C38 48 48 38 50 0 Z' fill='%23D07B36'/%3E%3C/svg%3E" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nicolás Debé" />
+  <meta property="og:title" content="Un mensaje. Todas las plataformas. · Nicolás Debé" />
+  <meta property="og:description" content="Redes sociales en Mendoza: contenido con IA planificada, sistemas de diseño y motion graphics. Meta Ads, community management y comunidades digitales." />
+  <meta property="og:url" content="https://nicolasdebe.github.io/Cv-portfolio/servicios.html" />
+  <meta property="og:image" content="https://nicolasdebe.github.io/Cv-portfolio/media/nicolas-hero.jpg" />
+  <meta property="og:locale" content="es_AR" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="media/nicolas-recorte.webp" />
+
+  <link rel="stylesheet" href="assets/css/style.css?v=8" />
+  <link rel="stylesheet" href="assets/css/servicios.css?v=1" />
+
+  <!-- La intro de papel sólo en la primera visita de la sesión y nunca con movimiento reducido.
+       Se decide antes de pintar para que no parpadee. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !sessionStorage.getItem('svc-intro')) {
+          d.classList.add('intro-on');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="svc">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===================================================================
+       INTRO · una hoja que se rasga
+       =================================================================== -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-half intro-top"></div>
+    <div class="intro-half intro-bot"></div>
+    <div class="intro-txt">
+      <span class="tag">@nicolasdebe_</span>
+      <b class="display">Servicios</b>
+    </div>
+    <button class="intro-skip tag" type="button" id="introSkip" tabindex="-1">Saltar</button>
+  </div>
+
+  <!-- cursor propio, sólo con mouse -->
+  <div class="cur" id="cur" aria-hidden="true"><span class="cur-t" id="curT"></span></div>
+
+  <nav class="nav" id="nav" aria-label="Secciones">
+    <a class="nav-brand" href="index.html"><span class="dot"></span> Nicolás Debé</a>
+    <div class="nav-menu tag d-only">
+      <a href="#metodo">Método</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#trabajo">Trabajo</a>
+      <a href="#referencias">Referencias</a>
+      <a href="#planes">Planes</a>
+      <a href="index.html">CV</a>
+    </div>
+    <a class="nav-cta tag" href="#contacto" data-cur="Hablemos">Pedime presupuesto</a>
+  </nav>
+
+  <main id="contenido">
+
+  <!-- ===================================================================
+       01 · HERO · las piezas sueltas se juntan en un solo teléfono
+       =================================================================== -->
+  <header class="s-hero" id="top">
+    <div class="s-hero-pin" id="heroPin">
+      <div class="wrap s-hero-grid">
+        <div class="s-hero-copy">
+          <p class="hero-kick tag" data-split-in>Lic. en Comunicación Digital e Interactiva <span>—</span> Mendoza</p>
+          <h1 class="s-hero-title display" id="heroTitle">
+            <span class="ln">Un mensaje.</span>
+            <span class="ln">Todas las</span>
+            <span class="ln"><em>plataformas.</em></span>
+          </h1>
+          <p class="s-hero-lede lede" id="heroLede">
+            Produzco y gestiono <b>experiencias comunicativas integrales</b>, con un mensaje
+            unificado en distintas plataformas.
+          </p>
+          <div class="hero-cta" id="heroCta">
+            <a class="btn btn--main" id="ctaMain" href="#contacto" data-cur="Hablemos">
+              <span>Pedime presupuesto
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7v-4H4v-6h9z"/></svg>
+              </span>
+            </a>
+            <a class="btn btn--ghost" href="#metodo"><span>Ver cómo trabajo</span></a>
+          </div>
+          <p class="s-hero-note tag" id="heroNote"><i></i> Cada pieza dice lo mismo, en el idioma de cada plataforma</p>
+        </div>
+
+        <!-- escenario: el recorte, el disco y las piezas que orbitan -->
+        <div class="stage" id="stage" aria-label="Piezas de distintas plataformas alrededor de Nicolás">
+          <span class="stage-disc" aria-hidden="true"></span>
+          <img class="stage-cut" id="stageCut" src="media/nicolas-recorte.webp" width="820" height="1226"
+               alt="Nicolás Debé con micrófono de corbata." fetchpriority="high" />
+
+          <!-- reel -->
+          <div class="mk mk-reel" data-mk data-depth="28" aria-hidden="true">
+            <img src="media/posters/papa-testimonios.jpg" alt="" width="432" height="768" />
+            <span class="mk-chip">Reel</span>
+            <span class="mk-reel-ui"><i>♥</i><i>💬</i><i>↗</i></span>
+          </div>
+
+          <!-- carrusel -->
+          <div class="mk mk-car" data-mk data-depth="18" aria-hidden="true">
+            <span class="mk-k">Carrusel · 1/7</span>
+            <b class="mk-car-t">Lo que nadie te dice de tu</b>
+            <b class="mk-car-key">marca</b>
+            <span class="mk-dots"><i class="on"></i><i></i><i></i><i></i></span>
+          </div>
+
+          <!-- anuncio -->
+          <div class="mk mk-ad" data-mk data-depth="34" aria-hidden="true">
+            <span class="mk-row"><i class="mk-av">CC</i><span><b>Café del Centro</b><small>Publicidad</small></span></span>
+            <span class="mk-ad-img"><b>2×1</b><small>martes de medialunas</small></span>
+            <span class="mk-ad-cta">Más información <i>›</i></span>
+          </div>
+
+          <!-- comentario -->
+          <div class="mk mk-com" data-mk data-depth="22" aria-hidden="true">
+            <span class="mk-row"><i class="mk-av mk-av--c">LU</i><span><b>lu.mza</b> ¿Hacen envíos a Godoy Cruz?</span></span>
+            <span class="mk-row mk-reply"><i class="mk-av">CC</i><span><b>cafedelcentro</b> ¡Sí! Hasta las 20 h 🚲</span></span>
+          </div>
+
+          <!-- canal de WhatsApp -->
+          <div class="mk mk-wa" data-mk data-depth="14" aria-hidden="true">
+            <span class="mk-wa-h"><i class="mk-av">CC</i> Canal · Café del Centro</span>
+            <span class="mk-wa-msg">Mañana estrenamos desayuno ☕ Se lo mostramos primero a este canal.<small>09:12 ✓✓</small></span>
+          </div>
+
+          <!-- calendario -->
+          <div class="mk mk-cal" data-mk data-depth="40" aria-hidden="true">
+            <span class="mk-cal-r"><b>Mar 12</b> Reel · 19:00</span>
+            <span class="mk-cal-r"><b>Jue 14</b> Carrusel · 13:00</span>
+            <span class="mk-cal-r"><b>Sáb 16</b> Historia · 10:30</span>
+          </div>
+
+          <!-- el teléfono donde todo converge -->
+          <div class="hero-phone" id="heroPhone" aria-hidden="true">
+            <div class="hero-phone-scr">
+              <video src="media/previews/todos-todos-todos.mp4" poster="media/posters/todos-todos-todos.jpg"
+                     muted loop playsinline preload="metadata"></video>
+              <span class="hero-phone-bar tag">@nicolasdebe_</span>
+            </div>
+          </div>
+
+          <svg class="stage-arrow" viewBox="0 0 200 150" aria-hidden="true">
+            <path class="draw" d="M12 22 C 84 8, 156 40, 168 118" />
+            <path class="draw" d="M136 100 L169 122 L186 84" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="s-hero-scroll tag" aria-hidden="true"><span>Bajá</span><i></i></div>
+    </div>
+  </header>
+
+  <!-- marquesina: los servicios, en loop -->
+  <div class="svc-marquee-clip" aria-hidden="true">
+  <div class="svc-marquee">
+    <div class="svc-marquee-track" id="svcMarquee">
+      <div class="svc-marquee-row">
+        <span>Producción de contenido</span><i>✦</i><span>Meta Ads</span><i>✦</i><span>Community management</span><i>✦</i><span>Comunidades digitales</span><i>✦</i><span>Motion graphics</span><i>✦</i><span>Sistemas de diseño</span><i>✦</i>
+      </div>
+      <div class="svc-marquee-row">
+        <span>Producción de contenido</span><i>✦</i><span>Meta Ads</span><i>✦</i><span>Community management</span><i>✦</i><span>Comunidades digitales</span><i>✦</i><span>Motion graphics</span><i>✦</i><span>Sistemas de diseño</span><i>✦</i>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ===================================================================
+       02 · MANIFIESTO
+       =================================================================== -->
+  <section class="block block--cream s-mani" id="manifiesto" aria-labelledby="maniT">
+    <div class="wrap">
+      <span class="head-k tag"><i></i> Redes sociales</span>
+      <h2 class="s-mani-t" id="maniT" data-words>
+        Producir contenido nunca fue tan fácil como ahora. Con una integración de la IA
+        correcta y planificada, se crea contenido de vanguardia en
+        <span class="nw"><span class="key">tiempo récord<svg class="mani-under" viewBox="0 0 800 24" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 15 C 180 7, 420 5, 794 11" /></svg></span>.</span>
+      </h2>
+      <div class="s-mani-foot">
+        <p class="lede">
+          Pero la herramienta no hace la marca. Lo que la hace es el criterio: saber qué decir,
+          a quién y en qué formato, y sostenerlo igual en cada plataforma.
+        </p>
+        <span class="stamp tag" id="stamp">IA <b>+</b> criterio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       03 · MÉTODO · tres paneles con scroll horizontal
+       =================================================================== -->
+  <section class="block block--deep s-met" id="metodo" aria-labelledby="metT">
+    <div class="s-met-pin" id="metPin">
+      <div class="wrap s-met-head">
+        <span class="head-k tag"><i></i> El método</span>
+        <h2 class="head-t display" id="metT">Tres capas,<br />un sistema</h2>
+      </div>
+
+      <div class="s-met-track" id="metTrack">
+
+        <!-- panel 1 · IA con un plan -->
+        <article class="pan" data-pan="1">
+          <div class="pan-txt">
+            <span class="chapter"><b>01</b><span class="tag">/ 03 · Planificación</span></span>
+            <h3>La IA, con un plan</h3>
+            <p>
+              La IA acelera, pero no decide. Primero defino objetivos, tono y calendario; después
+              la uso para investigar, bocetar y producir en tiempo récord, con revisión propia en
+              cada pieza.
+            </p>
+          </div>
+          <div class="pan-mk mk-chat" aria-hidden="true">
+            <div class="chat-bar"><i></i><i></i><i></i><span class="tag">Planificación · noviembre</span></div>
+            <div class="chat-body">
+              <p class="chat-me" id="chatMe">Armá el calendario de noviembre para una cafetería de Mendoza: 3 reels, 2 carruseles, foco en el desayuno.</p>
+              <p class="chat-ai"><span class="chat-ai-dot"></span><span class="chat-ai-txt">Listo. Propuesta por semana, con el objetivo de cada pieza:</span></p>
+              <div class="cal" id="cal">
+                <span class="cal-h">L</span><span class="cal-h">M</span><span class="cal-h">M</span><span class="cal-h">J</span><span class="cal-h">V</span><span class="cal-h">S</span><span class="cal-h">D</span>
+                <span></span><span class="c-reel">Reel</span><span></span><span class="c-car">Carrusel</span><span></span><span class="c-his">Historia</span><span></span>
+                <span></span><span></span><span class="c-reel">Reel</span><span></span><span class="c-his">Historia</span><span></span><span></span>
+                <span class="c-car">Carrusel</span><span></span><span></span><span class="c-his">Historia</span><span></span><span class="c-reel">Reel</span><span></span>
+                <span></span><span class="c-his">Historia</span><span></span><span></span><span class="c-rev">Informe</span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- panel 2 · sistema de diseño -->
+        <article class="pan" data-pan="2">
+          <div class="pan-txt">
+            <span class="chapter"><b>02</b><span class="tag">/ 03 · Diseño</span></span>
+            <h3>Claude Design y un sistema</h3>
+            <p>
+              Diseño con Claude Design sobre sistemas de diseño revisados al detalle: colores,
+              tipografías, márgenes y reglas fijas. Cada pieza nueva sale coherente con la anterior,
+              y la marca se reconoce antes de leer el nombre.
+            </p>
+          </div>
+          <div class="pan-mk mk-ds" aria-hidden="true">
+            <div class="ds-side">
+              <span class="tag">Tokens</span>
+              <div class="ds-sw">
+                <i data-tok style="--c:#1F3B2E"></i><i data-tok style="--c:#F5EFE0"></i><i data-tok style="--c:#B4652A"></i><i data-tok style="--c:#8EC5C1"></i>
+              </div>
+              <span class="tag">Tipografía</span>
+              <div class="ds-type">
+                <b data-tok class="ds-a">Aa</b><b data-tok class="ds-b">Aa</b><b data-tok class="ds-c">Aa</b>
+              </div>
+              <span class="tag">Objetos</span>
+              <div class="ds-obj"><i data-tok class="ds-tape"></i><svg data-tok viewBox="0 0 300 160"><path d="M196 22 C 120 4, 22 30, 16 82 C 10 134, 120 150, 196 140 C 270 130, 296 92, 282 60 C 268 28, 210 14, 150 18" /></svg></div>
+            </div>
+            <div class="ds-canvas" id="dsCanvas">
+              <span class="ds-l ds-bg"></span>
+              <span class="ds-l ds-tapebit"></span>
+              <span class="ds-l ds-kick">Café del Centro · Menú</span>
+              <b class="ds-l ds-head">El desayuno que te</b>
+              <b class="ds-l ds-key">espera</b>
+              <svg class="ds-l ds-ring" viewBox="0 0 300 160"><path class="draw" d="M196 22 C 120 4, 22 30, 16 82 C 10 134, 120 150, 196 140 C 270 130, 296 92, 282 60 C 268 28, 210 14, 150 18" /></svg>
+              <span class="ds-l ds-sign">@cafedelcentro</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- panel 3 · motion graphics -->
+        <article class="pan" data-pan="3">
+          <div class="pan-txt">
+            <span class="chapter"><b>03</b><span class="tag">/ 03 · Edición</span></span>
+            <h3>Motion graphics de alto calibre</h3>
+            <p>
+              Edito con motion graphics: texto que se mueve con la voz, objetos de papel animados
+              por código y sonido grabado. Videos con ritmo de tendencia y terminación de agencia.
+              Este es un fragmento real: movelo con el scroll.
+            </p>
+          </div>
+          <div class="pan-mk mk-ed" aria-hidden="true">
+            <div class="ed-view">
+              <div class="ed-phone">
+                <video id="scrubVid" src="media/previews/scrub-todos.mp4" muted playsinline preload="auto"></video>
+              </div>
+              <div class="ed-meta tag">
+                <span>Todos, todos, todos</span>
+                <span id="edTime">00:44:00</span>
+              </div>
+            </div>
+            <div class="ed-tl">
+              <div class="ed-ruler"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="ed-tr"><span class="tag">V1</span><div><i class="cl cl-v" style="--x:0;--w:34"></i><i class="cl cl-v" style="--x:35;--w:28"></i><i class="cl cl-v" style="--x:64;--w:36"></i></div></div>
+              <div class="ed-tr"><span class="tag">TXT</span><div><i class="cl cl-t" style="--x:4;--w:18"></i><i class="cl cl-t" style="--x:40;--w:14"></i><i class="cl cl-t" style="--x:70;--w:22"></i></div></div>
+              <div class="ed-tr"><span class="tag">SFX</span><div><i class="cl cl-s" style="--x:12;--w:4"></i><i class="cl cl-s" style="--x:33;--w:6"></i><i class="cl cl-s" style="--x:58;--w:3"></i><i class="cl cl-s" style="--x:81;--w:5"></i></div></div>
+              <div class="ed-tr"><span class="tag">MUS</span><div><i class="cl cl-m" style="--x:0;--w:100"></i></div></div>
+              <span class="ed-head" id="edHead"></span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="tear" style="background:var(--forest-deep)" aria-hidden="true">
+    <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path fill="#EDE3CF" d="M0 40L0 14 22 18 41 9 67 16 88 12 119 21 140 13 171 17 196 8 223 15 251 19 277 11 302 16 331 22 356 12 384 18 409 9 437 14 462 20 493 13 517 17 546 10 571 19 600 14 627 21 652 11 683 16 707 9 736 18 762 13 791 20 815 12 846 17 871 8 899 15 926 21 951 13 982 18 1006 10 1035 16 1060 22 1089 12 1115 17 1141 9 1170 15 1200 12 1200 40Z"/></svg>
+  </div>
+
+  <!-- ===================================================================
+       04 · SERVICIOS · hojas que se apilan
+       =================================================================== -->
+  <section class="block block--paper s-srv" id="servicios" aria-labelledby="srvT">
+    <div class="wrap">
+      <div class="head">
+        <span class="head-k tag"><i></i> Servicios de redes</span>
+        <h2 class="head-t display" id="srvT" data-chars>Qué hago<br />por tu cuenta</h2>
+        <p class="head-s lede">Para pymes y marcas locales, instituciones y profesionales que quieren una cuenta que trabaje todos los días.</p>
+      </div>
+
+      <div class="stack" id="stack">
+
+        <article class="sheet" style="--i:0">
+          <span class="tape" aria-hidden="true"></span>
+          <div class="sheet-txt">
+            <span class="sheet-n">01</span>
+            <h3>Producción de contenido</h3>
+            <p>Reels, carruseles, historias y piezas gráficas: guion, diseño y edición sobre el sistema visual de tu marca.</p>
+            <ul class="sheet-ls tag">
+              <li>Guion y ganchos</li><li>Diseño con sistema propio</li><li>Edición con motion graphics</li><li>Copy pensado para búsqueda</li>
+            </ul>
+          </div>
+          <div class="sheet-mk sm-flip" aria-hidden="true">
+            <div class="flip"><div class="flip-in"><img src="media/posters/voluntario-papa.jpg" alt="" loading="lazy" /><img src="media/posters/disfraz-confiesa.jpg" alt="" loading="lazy" /></div></div>
+            <div class="flip"><div class="flip-in"><img src="media/posters/papa-dia-3.jpg" alt="" loading="lazy" /><img src="media/posters/concilio.jpg" alt="" loading="lazy" /></div></div>
+            <div class="flip"><div class="flip-in"><img src="media/posters/todos-todos-todos.jpg" alt="" loading="lazy" /><img src="media/posters/eco-periodismo.jpg" alt="" loading="lazy" /></div></div>
+            <div class="flip"><div class="flip-in"><img src="media/posters/teologia-kayak.jpg" alt="" loading="lazy" /><img src="media/posters/papa-dia-1-2.jpg" alt="" loading="lazy" /></div></div>
+            <div class="flip"><div class="flip-in"><img src="media/posters/papa-testimonios.jpg" alt="" loading="lazy" /><img src="media/posters/consecuencias.jpg" alt="" loading="lazy" /></div></div>
+            <div class="flip"><div class="flip-in"><img src="media/posters/consecuencias.jpg" alt="" loading="lazy" /><img src="media/posters/voluntario-papa.jpg" alt="" loading="lazy" /></div></div>
+          </div>
+        </article>
+
+        <article class="sheet" style="--i:1">
+          <span class="tape" aria-hidden="true"></span>
+          <div class="sheet-txt">
+            <span class="sheet-n">02</span>
+            <h3>Gestión de Meta Ads</h3>
+            <p>Campañas en Instagram y Facebook pensadas por etapa: que te conozcan, que te consideren y que te elijan. Segmentación, creatividades y seguimiento.</p>
+            <ul class="sheet-ls tag">
+              <li>Estrategia por etapa</li><li>Segmentación de públicos</li><li>Creatividades por anuncio</li><li>Informe de resultados</li>
+            </ul>
+          </div>
+          <div class="sheet-mk sm-fun" aria-hidden="true">
+            <div class="fun-row" style="--w:100%"><span>Alcance</span><i>Que te conozcan</i></div>
+            <div class="fun-row" style="--w:74%"><span>Consideración</span><i>Que te tengan en cuenta</i></div>
+            <div class="fun-row" style="--w:48%"><span>Conversión</span><i>Que te elijan</i></div>
+            <span class="fun-tag tag">Cada etapa, su anuncio y su público</span>
+          </div>
+        </article>
+
+        <article class="sheet" style="--i:2">
+          <span class="tape" aria-hidden="true"></span>
+          <div class="sheet-txt">
+            <span class="sheet-n">03</span>
+            <h3>Community management</h3>
+            <p>El día a día de tu cuenta: calendario, publicación y respuesta a comentarios y mensajes con la voz de la marca, sin dejar a nadie esperando.</p>
+            <ul class="sheet-ls tag">
+              <li>Calendario mensual</li><li>Publicación y programación</li><li>Comentarios y mensajes</li><li>Moderación</li>
+            </ul>
+          </div>
+          <div class="sheet-mk sm-chat" aria-hidden="true">
+            <p class="b b-in"><b>lu.mza</b> ¿Hacen envíos a Godoy Cruz?</p>
+            <p class="b b-typing"><i></i><i></i><i></i></p>
+            <p class="b b-out">¡Sí! Hoy hasta las 20 h. Pedí por mensaje directo 🚲</p>
+            <p class="b b-in"><b>martin.bq</b> El reel de ayer 🔥🔥</p>
+            <p class="b b-out">¡Gracias, Martín! Mañana hay segunda parte ☕</p>
+          </div>
+        </article>
+
+        <article class="sheet" style="--i:3">
+          <span class="tape" aria-hidden="true"></span>
+          <div class="sheet-txt">
+            <span class="sheet-n">04</span>
+            <h3>Comunidades digitales</h3>
+            <p>Que la audiencia vuelva y participe: canales de WhatsApp, grupos y difusión segmentada, con contenido propio para cada comunidad.</p>
+            <ul class="sheet-ls tag">
+              <li>Canales y grupos</li><li>Difusión segmentada</li><li>Contenido exclusivo</li><li>Reglas y moderación</li>
+            </ul>
+          </div>
+          <div class="sheet-mk sm-com" aria-hidden="true">
+            <div class="com-core"><i class="mk-av">CC</i><span class="tag">Canal</span></div>
+            <i class="com-node" style="--a:0deg"></i><i class="com-node" style="--a:40deg"></i><i class="com-node" style="--a:80deg"></i>
+            <i class="com-node" style="--a:120deg"></i><i class="com-node" style="--a:160deg"></i><i class="com-node" style="--a:200deg"></i>
+            <i class="com-node" style="--a:240deg"></i><i class="com-node" style="--a:280deg"></i><i class="com-node" style="--a:320deg"></i>
+            <span class="com-pill">Se unió alguien nuevo</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       05 · TRABAJO · el anillo de piezas
+       =================================================================== -->
+  <section class="block block--forest s-ring" id="trabajo" aria-labelledby="ringT">
+    <div class="wrap">
+      <div class="head">
+        <span class="head-k tag"><i></i> Lo que ya hice</span>
+        <h2 class="head-t display" id="ringT" data-chars>Piezas propias</h2>
+        <p class="head-s lede">Guion, voz, cámara y animación propios. Diez piezas publicadas en 2026, entre ellas la serie de cinco sobre la visita de León&nbsp;XIV.</p>
+      </div>
+    </div>
+
+    <div class="ring-wrap d-only" id="ringWrap" data-cur="Arrastrá">
+      <div class="ring" id="ring">
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/DftGp_JtKrI/" target="_blank" rel="noopener" data-t="Todos, todos, todos" data-k="Serie León XIV · 5/5" data-video="media/previews/todos-todos-todos.mp4"><img src="media/posters/todos-todos-todos.jpg" alt="Todos, todos, todos" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/DfkmQGaBvS1/" target="_blank" rel="noopener" data-t="Testimonios de la vigilia" data-k="Serie León XIV · 4/5" data-video="media/previews/papa-testimonios.mp4"><img src="media/posters/papa-testimonios.jpg" alt="Testimonios de la vigilia" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/Dfic_OFpVmT/" target="_blank" rel="noopener" data-t="La previa de la misa" data-k="Serie León XIV · 3/5" data-video="media/previews/papa-dia-3.mp4"><img src="media/posters/papa-dia-3.jpg" alt="La previa de la misa" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/Dfe-NtQBBMf/" target="_blank" rel="noopener" data-t="Qué trae el kit" data-k="Serie León XIV · 2/5" data-video="media/previews/papa-dia-1-2.mp4"><img src="media/posters/papa-dia-1-2.jpg" alt="Qué trae el kit" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/DfTJq9WtHm6/" target="_blank" rel="noopener" data-t="Voluntario con el Papa" data-k="Serie León XIV · 1/5" data-video="media/previews/voluntario-papa.mp4"><img src="media/posters/voluntario-papa.jpg" alt="Voluntario con el Papa" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/abeldejesusyt/reel/DfXhJuVPap_/" target="_blank" rel="noopener" data-t="Educar en las consecuencias" data-k="Colaboración" data-video="media/previews/consecuencias.mp4"><img src="media/posters/consecuencias.jpg" alt="Educar en las consecuencias" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/DfICVgRp63K/" target="_blank" rel="noopener" data-t="El disfraz confiesa" data-k="Crítica cultural" data-video="media/previews/disfraz-confiesa.mp4"><img src="media/posters/disfraz-confiesa.jpg" alt="El disfraz confiesa" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/DfBXV3jtDc9/" target="_blank" rel="noopener" data-t="Teología del cuerpo" data-k="Crítica cultural" data-video="media/previews/teologia-kayak.mp4"><img src="media/posters/teologia-kayak.jpg" alt="Teología del cuerpo" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/DekmJLvMe-x/" target="_blank" rel="noopener" data-t="El intermediario sin cara" data-k="Medios" data-video="media/previews/eco-periodismo.mp4"><img src="media/posters/eco-periodismo.jpg" alt="El intermediario sin cara" loading="lazy" /></a>
+        <a class="ring-it" href="https://www.instagram.com/nicolasdebe_/reel/DeUZOl1s4le/" target="_blank" rel="noopener" data-t="La barca de Teseo y el Concilio" data-k="Historia" data-video="media/previews/concilio.mp4"><img src="media/posters/concilio.jpg" alt="La barca de Teseo y el Concilio" loading="lazy" /></a>
+      </div>
+      <div class="ring-cap" aria-live="polite"><span class="tag" id="ringK">Serie León XIV · 5/5</span><b id="ringTitle">Todos, todos, todos</b></div>
+    </div>
+
+    <!-- celular: riel deslizable -->
+    <div class="m-only">
+      <div class="m-rail">
+        <a class="m-rail-it" href="https://www.instagram.com/nicolasdebe_/reel/DftGp_JtKrI/" target="_blank" rel="noopener"><img src="media/posters/todos-todos-todos.jpg" alt="Todos, todos, todos" loading="lazy" /><span class="tag">Serie León XIV · 5/5</span></a>
+        <a class="m-rail-it" href="https://www.instagram.com/nicolasdebe_/reel/DfkmQGaBvS1/" target="_blank" rel="noopener"><img src="media/posters/papa-testimonios.jpg" alt="Testimonios de la vigilia" loading="lazy" /><span class="tag">Serie León XIV · 4/5</span></a>
+        <a class="m-rail-it" href="https://www.instagram.com/nicolasdebe_/reel/Dfic_OFpVmT/" target="_blank" rel="noopener"><img src="media/posters/papa-dia-3.jpg" alt="La previa de la misa" loading="lazy" /><span class="tag">Serie León XIV · 3/5</span></a>
+        <a class="m-rail-it" href="https://www.instagram.com/nicolasdebe_/reel/DfICVgRp63K/" target="_blank" rel="noopener"><img src="media/posters/disfraz-confiesa.jpg" alt="El disfraz confiesa" loading="lazy" /><span class="tag">Crítica cultural</span></a>
+        <a class="m-rail-it" href="https://www.instagram.com/nicolasdebe_/reel/DfBXV3jtDc9/" target="_blank" rel="noopener"><img src="media/posters/teologia-kayak.jpg" alt="Teología del cuerpo" loading="lazy" /><span class="tag">Crítica cultural</span></a>
+        <a class="m-rail-it" href="https://www.instagram.com/nicolasdebe_/reel/DekmJLvMe-x/" target="_blank" rel="noopener"><img src="media/posters/eco-periodismo.jpg" alt="El intermediario sin cara" loading="lazy" /><span class="tag">Medios</span></a>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <a class="ring-more" href="index.html#cobertura">Ver el caso León XIV completo →</a>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       06 · REFERENCIAS · contenido de otras marcas que estudio
+       =================================================================== -->
+  <section class="block block--ink s-ref" id="referencias" aria-labelledby="refT">
+    <div class="wrap">
+      <div class="head">
+        <span class="head-k tag"><i></i> Referencias</span>
+        <h2 class="head-t display" id="refT" data-chars>Contenido<br />que estudio</h2>
+        <p class="head-s lede">
+          No es mi trabajo: son cuentas de otras marcas que hacen muy buen contenido en su rubro.
+          Las sigo de cerca porque cada una resuelve algo que aplico. Tocá una para ver su perfil en vivo.
+        </p>
+      </div>
+    </div>
+
+    <div class="refs" id="refs">
+      <div class="refs-track" id="refsTrack">
+        <button class="ref" type="button" data-ig="duolingo" data-cur="Ver">
+          <span class="ref-lab tag">Referencia · no es mío</span>
+          <b class="ref-h">@duolingo</b><span class="ref-n">Duolingo · app de idiomas</span>
+          <span class="ref-q"><span class="tag">Qué miro</span>Un personaje con voz propia que se anima a lo absurdo y convierte una app en una celebridad.</span>
+        </button>
+        <button class="ref" type="button" data-ig="ryanair" data-cur="Ver">
+          <span class="ref-lab tag">Referencia · no es mío</span>
+          <b class="ref-h">@ryanair</b><span class="ref-n">Ryanair · aerolínea</span>
+          <span class="ref-q"><span class="tag">Qué miro</span>Responder a la conversación del día con ironía y velocidad, incluso sobre sus propias críticas.</span>
+        </button>
+        <button class="ref" type="button" data-ig="netflixlat" data-cur="Ver">
+          <span class="ref-lab tag">Referencia · no es mío</span>
+          <b class="ref-h">@netflixlat</b><span class="ref-n">Netflix Latinoamérica</span>
+          <span class="ref-q"><span class="tag">Qué miro</span>Hablar en el idioma de la audiencia: modismos, memes y el timing de cada estreno.</span>
+        </button>
+        <button class="ref" type="button" data-ig="nasa" data-cur="Ver">
+          <span class="ref-lab tag">Referencia · no es mío</span>
+          <b class="ref-h">@nasa</b><span class="ref-n">NASA · institución</span>
+          <span class="ref-q"><span class="tag">Qué miro</span>Una institución que convierte datos complejos en imágenes que paran el scroll.</span>
+        </button>
+        <button class="ref" type="button" data-ig="museoprado" data-cur="Ver">
+          <span class="ref-lab tag">Referencia · no es mío</span>
+          <b class="ref-h">@museoprado</b><span class="ref-n">Museo del Prado · cultura</span>
+          <span class="ref-q"><span class="tag">Qué miro</span>Patrimonio contado con ganchos: una obra, un detalle, una historia que no conocías.</span>
+        </button>
+        <button class="ref" type="button" data-ig="teatrocolon" data-cur="Ver">
+          <span class="ref-lab tag">Referencia · no es mío</span>
+          <b class="ref-h">@teatrocolon</b><span class="ref-n">Teatro Colón · institución</span>
+          <span class="ref-q"><span class="tag">Qué miro</span>Mostrar lo que pasa detrás del telón para que una institución centenaria se sienta cercana.</span>
+        </button>
+        <button class="ref" type="button" data-ig="hormozi" data-cur="Ver">
+          <span class="ref-lab tag">Referencia · no es mío</span>
+          <b class="ref-h">@hormozi</b><span class="ref-n">Alex Hormozi · marca personal</span>
+          <span class="ref-q"><span class="tag">Qué miro</span>Una idea por pieza y subtítulos que marcan el ritmo: marca personal construida a fuerza de constancia.</span>
+        </button>
+        <button class="ref" type="button" data-ig="canva" data-cur="Ver">
+          <span class="ref-lab tag">Referencia · no es mío</span>
+          <b class="ref-h">@canva</b><span class="ref-n">Canva · diseño</span>
+          <span class="ref-q"><span class="tag">Qué miro</span>Un sistema visual tan consistente que cualquier pieza suya se reconoce sin ver el logo.</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- visor del perfil: el incrustado oficial de Instagram se pide sólo al abrirlo -->
+    <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewerT" hidden>
+      <div class="viewer-bg" data-close></div>
+      <div class="viewer-sheet">
+        <span class="tape" aria-hidden="true"></span>
+        <div class="viewer-top">
+          <span class="tag">Referencia · contenido de otra marca</span>
+          <button class="viewer-x" type="button" data-close aria-label="Cerrar">✕</button>
+        </div>
+        <h3 class="viewer-t" id="viewerT">@marca</h3>
+        <div class="viewer-embed" id="viewerEmbed"></div>
+        <a class="viewer-go" id="viewerGo" href="#" target="_blank" rel="noopener">Abrir en Instagram ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       07 · PROCESO · el hilo
+       =================================================================== -->
+  <section class="block block--cream s-proc" id="proceso" aria-labelledby="procT">
+    <div class="wrap">
+      <div class="head">
+        <span class="head-k tag"><i></i> Cómo trabajo</span>
+        <h2 class="head-t display" id="procT" data-chars>Cuatro pasos</h2>
+      </div>
+
+      <div class="proc" id="proc">
+        <svg class="proc-hilo" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
+          <path class="hilo-bg" d="M50 0 C 90 120, 10 230, 50 350 C 90 470, 10 580, 50 700 C 90 820, 10 900, 50 1000" pathLength="1" />
+          <path class="hilo" id="hilo" d="M50 0 C 90 120, 10 230, 50 350 C 90 470, 10 580, 50 700 C 90 820, 10 900, 50 1000" pathLength="1" />
+        </svg>
+
+        <div class="step-p" data-side="l">
+          <span class="step-n">01</span>
+          <h3>Diagnóstico</h3>
+          <p>Miro tu cuenta, tu competencia y tu público. Definimos qué querés lograr y cómo lo vamos a medir.</p>
+        </div>
+        <div class="step-p" data-side="r">
+          <span class="step-n">02</span>
+          <h3>Sistema visual</h3>
+          <p>Armo o reviso tu sistema de diseño: colores, tipografías, plantillas y tono. Si ya tenés manual de marca, lo traduzco a redes.</p>
+        </div>
+        <div class="step-p" data-side="l">
+          <span class="step-n">03</span>
+          <h3>Producción y publicación</h3>
+          <p>Calendario aprobado, piezas producidas y publicadas en fecha. Vos aprobás antes de que salga cada una.</p>
+        </div>
+        <div class="step-p" data-side="r">
+          <span class="step-n">04</span>
+          <h3>Medición y ajuste</h3>
+          <p>Informe mensual: qué funcionó, qué no y qué cambiamos el mes siguiente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       08 · PLANES · hojas que caen sobre la mesa
+       =================================================================== -->
+  <section class="block block--wood s-plans" id="planes" aria-labelledby="plansT">
+    <div class="wrap">
+      <div class="head">
+        <span class="head-k tag"><i></i> Planes</span>
+        <h2 class="head-t display" id="plansT" data-chars>Elegí por dónde<br />empezar</h2>
+        <p class="head-s lede">Sin precios fijos: cada cuenta necesita algo distinto. Elegí un plan y te paso un presupuesto a medida.</p>
+      </div>
+
+      <div class="plans" id="plans">
+        <article class="plan">
+          <span class="tape" aria-hidden="true"></span>
+          <span class="plan-k tag">Plan 01</span>
+          <h3>Contenido</h3>
+          <p class="plan-d">Para marcas que ya tienen quien gestione la cuenta y necesitan piezas a la altura.</p>
+          <ul class="plan-ls">
+            <li>Sistema visual de la marca</li>
+            <li>Reels con motion graphics</li>
+            <li>Carruseles y piezas gráficas</li>
+            <li>Copy y texto alternativo</li>
+          </ul>
+          <a class="plan-go" href="https://wa.me/542613464301?text=Hola%20Nicol%C3%A1s%2C%20me%20interesa%20el%20plan%20Contenido" target="_blank" rel="noopener" data-cur="WhatsApp">Pedime presupuesto ↗</a>
+        </article>
+
+        <article class="plan plan--mid">
+          <span class="tape" aria-hidden="true"></span>
+          <span class="plan-k tag">Plan 02</span>
+          <h3>Contenido + Comunidad</h3>
+          <p class="plan-d">Para delegar la cuenta entera: lo que se publica y lo que se responde.</p>
+          <ul class="plan-ls">
+            <li>Todo lo del plan Contenido</li>
+            <li>Calendario mensual</li>
+            <li>Publicación y programación</li>
+            <li>Respuesta a comentarios y mensajes</li>
+            <li>Informe mensual</li>
+          </ul>
+          <a class="plan-go" href="https://wa.me/542613464301?text=Hola%20Nicol%C3%A1s%2C%20me%20interesa%20el%20plan%20Contenido%20%2B%20Comunidad" target="_blank" rel="noopener" data-cur="WhatsApp">Pedime presupuesto ↗</a>
+        </article>
+
+        <article class="plan">
+          <span class="tape" aria-hidden="true"></span>
+          <span class="plan-k tag">Plan 03</span>
+          <h3>Integral</h3>
+          <p class="plan-d">Para crecer con pauta y con una comunidad propia.</p>
+          <ul class="plan-ls">
+            <li>Todo lo del plan Contenido + Comunidad</li>
+            <li>Gestión de Meta Ads</li>
+            <li>Canales y grupos de WhatsApp</li>
+            <li>Reunión mensual de estrategia</li>
+          </ul>
+          <a class="plan-go" href="https://wa.me/542613464301?text=Hola%20Nicol%C3%A1s%2C%20me%20interesa%20el%20plan%20Integral" target="_blank" rel="noopener" data-cur="WhatsApp">Pedime presupuesto ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       09 · PREGUNTAS
+       =================================================================== -->
+  <section class="block block--paper s-faq" id="preguntas" aria-labelledby="faqT">
+    <div class="wrap faq-grid">
+      <div class="head">
+        <span class="head-k tag"><i></i> Preguntas</span>
+        <h2 class="head-t display" id="faqT" data-chars>Antes de<br />escribirme</h2>
+      </div>
+
+      <div class="faq" id="faq">
+        <details>
+          <summary>¿Por qué no hay precios?</summary>
+          <div class="faq-a"><p>Porque cada cuenta necesita algo distinto. Escribime, hacemos el diagnóstico y te paso un presupuesto a medida del plan que elijas.</p></div>
+        </details>
+        <details>
+          <summary>¿La pauta de Meta Ads está incluida?</summary>
+          <div class="faq-a"><p>No. El presupuesto de anuncios se paga directamente a Meta y lo decidís vos. Mi trabajo es la estrategia, las creatividades y la gestión de las campañas.</p></div>
+        </details>
+        <details>
+          <summary>¿Usás IA? ¿Se nota?</summary>
+          <div class="faq-a"><p>La uso para investigar, planificar y acelerar la producción, nunca para reemplazar el criterio. Cada pieza pasa por guion, diseño y revisión propios, y no publico imágenes generadas con IA como si fueran reales.</p></div>
+        </details>
+        <details>
+          <summary>¿Necesito tener un sistema de diseño?</summary>
+          <div class="faq-a"><p>No. Si no tenés, lo armamos en el segundo paso. Si ya tenés manual de marca, lo traduzco a plantillas y reglas para redes.</p></div>
+        </details>
+        <details>
+          <summary>¿Trabajás sólo con marcas de Mendoza?</summary>
+          <div class="faq-a"><p>Estoy en Mendoza y acá puedo cubrir eventos y producciones en persona. La planificación, el diseño, la edición y la gestión se pueden hacer a distancia.</p></div>
+        </details>
+        <details>
+          <summary>¿Cuándo empiezo a ver publicaciones?</summary>
+          <div class="faq-a"><p>Primero va el diagnóstico y el sistema visual; con eso aprobado arranca la publicación. Los tiempos los definimos juntos según el plan.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===================================================================
+       10 · CIERRE
+       =================================================================== -->
+  <footer class="block block--ink s-end" id="contacto">
+    <div class="wrap s-end-grid">
+      <div class="s-end-copy">
+        <h2 class="s-end-t display" id="endT"><span class="w">Hablemos</span><em>.</em></h2>
+        <p class="lede">Contame qué hace tu marca y qué querés lograr. Te respondo por WhatsApp.</p>
+        <div class="avail tag"><i></i> Tomando cuentas nuevas</div>
+        <div class="hero-cta">
+          <a class="btn btn--main" id="ctaEnd" href="https://wa.me/542613464301?text=Hola%20Nicol%C3%A1s%2C%20quiero%20un%20presupuesto%20para%20redes" target="_blank" rel="noopener" data-cur="WhatsApp">
+            <span>Escribime por WhatsApp
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7v-4H4v-6h9z"/></svg>
+            </span>
+          </a>
+          <a class="btn btn--ghost" href="mailto:nicodebe05@gmail.com"><span>Mandame un mail</span></a>
+        </div>
+      </div>
+      <div class="s-end-fig" aria-hidden="true">
+        <span class="stage-disc"></span>
+        <img src="media/nicolas-recorte.webp" alt="" width="820" height="1226" loading="lazy" />
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="foot tag">
+        <span>© 2026 · Nicolás Debé</span>
+        <a href="index.html">Ver el CV completo →</a>
+        <span>@nicolasdebe_</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- barra de acción fija, sólo celular -->
+  <div class="m-bar m-only" id="mbar">
+    <div class="m-bar-txt">
+      <b>Redes que trabajan</b>
+      <span class="tag">Presupuesto a medida</span>
+    </div>
+    <a class="btn btn--main" href="https://wa.me/542613464301?text=Hola%20Nicol%C3%A1s%2C%20quiero%20un%20presupuesto%20para%20redes" target="_blank" rel="noopener"><span>Escribime</span></a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js" defer></script>
+  <script src="assets/js/servicios.js?v=1" defer></script>
+</body>
+</html>
